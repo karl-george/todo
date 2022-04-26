@@ -1,0 +1,47 @@
+/* CONTAINERS & GRIDS */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-2x2 {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+
+.header-date {
+  grid-template-areas: "date month"
+                       "date year";
+  text-align: center;
+}
+
+.date {
+  grid-area: date;
+  font-size: 5rem;
+}
+
+.month {
+  grid-area: month;
+  font-size: 1.8rem;
+  align-self: flex-end;
+}
+
+.year {
+  grid-area: year;
+  font-size: 1.8rem;
+}
