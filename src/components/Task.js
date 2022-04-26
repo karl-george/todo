@@ -1,18 +1,17 @@
-const Task = () => {
+const Task = ({ task, handleChange }) => {
   return (
-    <div>
-      <div className='tasks'>
-        <h3 className='task-title'>Do very important thing</h3>
-        <input type='checkbox' name='isComplete' className="checkbox"/>
-        <label className="checkbox-label" htmlFor="isComplete">Complete the task</label>
-      </div>
-      <div className='tasks'>
-        <h3 className='task-title completed'>
-          Do very important and very long task
-        </h3>
-        <input type='checkbox' name='isComplete' className="checkbox"/>
-        <label className="checkbox-label" htmlFor="isComplete">Complete the task</label>
-      </div>
+    <div className='tasks'>
+      <h3 className='task-title'>{task.title}</h3>
+      <input
+        type='checkbox'
+        name='isComplete'
+        className='checkbox'
+        checked={task.isComplete}
+        onChange={handleChange}
+      />
+      <label className='checkbox-label' htmlFor='isComplete'>
+        Complete the task
+      </label>
     </div>
   );
 };
