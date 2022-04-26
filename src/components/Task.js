@@ -1,7 +1,13 @@
 const Task = ({ task, handleChange }) => {
+  const styles = {
+    color: task.isComplete ? 'rgb(196, 196, 196)' : 'rgb(86, 86, 86)',
+  };
+
   return (
     <div className='tasks'>
-      <h3 className='task-title'>{task.title}</h3>
+      <h3 className='task-title' style={styles}>
+        {task.title}
+      </h3>
       <input
         type='checkbox'
         name='isComplete'
