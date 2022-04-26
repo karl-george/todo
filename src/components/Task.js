@@ -7,7 +7,7 @@ const Task = ({ task, handleChange }) => {
         name='isComplete'
         className='checkbox'
         checked={task.isComplete}
-        onChange={handleChange}
+        onChange={(event) => handleChange(event, task.id)}
       />
       <label className='checkbox-label' htmlFor='isComplete'>
         Complete the task

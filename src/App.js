@@ -22,20 +22,22 @@ function App() {
     },
   ]);
 
-  console.log(task);
-
   const taskElements = task.map((task) => {
     return <Task task={task} handleChange={handleChange} key={task.id} />;
   });
 
-  function handleChange(event) {
+  function handleChange(event, id) {
     const { name, value, type, checked } = event.target;
 
     setTask((prevData) => {
-      return {
-        ...prevData,
-        [name]: type === 'checkbox' ? checked : value,
-      };
+      return prevData.map((task) => {
+        return task.id === id
+          ? {
+              ...task,
+              [name]: type === 'checkbox' ? checked : value,
+            }
+          : task;
+      });
     });
   }
 
