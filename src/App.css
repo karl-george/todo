@@ -45,3 +45,21 @@
   grid-area: year;
   font-size: 1.8rem;
 }
+
+/* Tasks */
+
+.tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.task-title {
+  max-width: 300px;
+}
+
+.completed {
+  color: rgb(196, 196, 196);
+}
