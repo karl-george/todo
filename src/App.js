@@ -1,27 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import Header from './components/Header';
 import Task from './components/Task';
 import './App.css';
 
 function App() {
-  const [task, setTask] = useState([
-    {
-      id: nanoid(),
-      title: 'First todo',
-      isComplete: false,
-    },
-    {
-      id: nanoid(),
-      title: 'Second todo task that is very long',
-      isComplete: false,
-    },
-    {
-      id: 3,
-      title: 'Third todo',
-      isComplete: true,
-    },
-  ]);
+  const [task, setTask] = useState(
+    () => JSON.parse(localStorage.getItem('tasks')) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(task));
+  }, [task]);
 
   const taskElements = task.map((task) => {
     return (
