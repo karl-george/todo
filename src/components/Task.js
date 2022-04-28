@@ -1,4 +1,4 @@
-const Task = ({ task, handleChange }) => {
+const Task = ({ task, handleChange, deleteTask }) => {
   const styles = {
     color: task.isComplete ? 'rgb(196, 196, 196)' : 'rgb(86, 86, 86)',
   };
@@ -8,6 +8,7 @@ const Task = ({ task, handleChange }) => {
       <h3 className='task-title' style={styles}>
         {task.title}
       </h3>
+      <button onClick={() => deleteTask(task.id)}>X</button>
       <input
         type='checkbox'
         name='isComplete'

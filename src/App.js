@@ -12,7 +12,7 @@ function App() {
     },
     {
       id: 2,
-      title: 'Second todo',
+      title: 'Second todo task that is very long',
       isComplete: false,
     },
     {
@@ -23,7 +23,14 @@ function App() {
   ]);
 
   const taskElements = task.map((task) => {
-    return <Task task={task} handleChange={handleChange} key={task.id} />;
+    return (
+      <Task
+        task={task}
+        handleChange={handleChange}
+        deleteTask={deleteTask}
+        key={task.id}
+      />
+    );
   });
 
   function handleChange(event, id) {
@@ -37,6 +44,16 @@ function App() {
               [name]: type === 'checkbox' ? checked : value,
             }
           : task;
+      });
+    });
+  }
+
+  function deleteTask(id) {
+    setTask((prevData) => {
+      return prevData.filter((task) => {
+        if (task.id !== id) {
+          return true;
+        }
       });
     });
   }
