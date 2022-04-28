@@ -58,10 +58,25 @@ function App() {
     });
   }
 
+  function addTask() {
+    console.log(nameValue.value);
+    setTask((prevData) => {
+      return [...prevData, {
+        id: prevData.length + 1,
+        title: nameValue.value,
+        isComplete: false
+      }]
+    })
+  }
+
+  let nameValue;
+
   return (
     <div className='App container'>
       <Header />
       {taskElements}
+      <input type="text" name="newTask" ref={el => nameValue=el} />
+      <button onClick={addTask}>Add Task</button>
     </div>
   );
 }
