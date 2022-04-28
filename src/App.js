@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 import Header from './components/Header';
 import Task from './components/Task';
 import './App.css';
@@ -6,12 +7,12 @@ import './App.css';
 function App() {
   const [task, setTask] = useState([
     {
-      id: 1,
+      id: nanoid(),
       title: 'First todo',
       isComplete: false,
     },
     {
-      id: 2,
+      id: nanoid(),
       title: 'Second todo task that is very long',
       isComplete: false,
     },
@@ -61,12 +62,15 @@ function App() {
   function addTask() {
     console.log(nameValue.value);
     setTask((prevData) => {
-      return [...prevData, {
-        id: prevData.length + 1,
-        title: nameValue.value,
-        isComplete: false
-      }]
-    })
+      return [
+        ...prevData,
+        {
+          id: nanoid(),
+          title: nameValue.value,
+          isComplete: false,
+        },
+      ];
+    });
   }
 
   let nameValue;
@@ -75,7 +79,7 @@ function App() {
     <div className='App container'>
       <Header />
       {taskElements}
-      <input type="text" name="newTask" ref={el => nameValue=el} />
+      <input type='text' name='newTask' ref={(el) => (nameValue = el)} />
       <button onClick={addTask}>Add Task</button>
     </div>
   );
