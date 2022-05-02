@@ -69,8 +69,17 @@ function App() {
     <div className='App container'>
       <Header />
       {taskElements}
-      <input type='text' name='newTask' ref={(el) => (nameValue = el)} />
-      <button onClick={addTask}>Add Task</button>
+      <div className='new-task-container'>
+        <input
+          type='text'
+          name='newTask'
+          ref={(el) => (nameValue = el)}
+          className='new-task'
+        />
+        <button onClick={addTask} className='add-task'>
+          Add Task
+        </button>
+      </div>
     </div>
   );
 }

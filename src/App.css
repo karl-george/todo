@@ -3,7 +3,7 @@
   max-width: 500px;
   margin: 4rem auto;
   padding: 4rem;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .grid {
@@ -15,7 +15,6 @@
   grid-template-rows: repeat(2, 1fr);
 }
 
-
 /* HEADER */
 .header {
   display: flex;
@@ -26,8 +25,9 @@
 }
 
 .header-date {
-  grid-template-areas: "date month"
-                       "date year";
+  grid-template-areas:
+    'date month'
+    'date year';
   text-align: center;
 }
 
@@ -72,6 +72,12 @@
   display: none;
 }
 
+.task-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .task-delete {
   opacity: 0;
 }
@@ -79,21 +85,35 @@
 .tasks:hover .task-delete {
   opacity: 100;
 }
-
 .task-delete {
   background-color: #ff033e;
   border: 0;
   border-radius: 5px;
   font-size: 1rem;
-  padding: .5rem;
+  padding: 0.5rem;
   width: 2.4rem;
   height: 2.4rem;
   cursor: pointer;
-  color: #FFF;
+  color: #fff;
 }
 
-.task-buttons {
+.new-task-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+}
+
+.new-task {
+  margin: 3rem auto;
+  font-size: 1.6rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 80%;
+  padding: 1rem;
+}
+
+.add-task {
+  cursor: pointer;
+  width: 30%;
+  margin: 0 auto;
+  padding: .5rem;
 }
